@@ -715,7 +715,7 @@ class MultiIndex(Index):
 
         Returns
         -------
-        symmetric_difference : MiltiIndex
+        symmetric_difference : MultiIndex
 
         Notes
         -----

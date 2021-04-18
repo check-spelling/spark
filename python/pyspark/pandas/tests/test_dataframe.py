@@ -3992,7 +3992,7 @@ class DataFrameTest(ReusedSQLTestCase, SQLTestUtils):
             kdf.set_index("a", append=True).duplicated(subset=["b"]).sort_index(),
         )
 
-        # mutli-index columns
+        # multi-index columns
         columns = pd.MultiIndex.from_tuples([("x", "a"), ("x", "b"), ("y", "c")])
         pdf.columns = columns
         kdf.columns = columns
