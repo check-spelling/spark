@@ -2211,7 +2211,7 @@ class StringMethods(object):
             after hyphens in compound words, as it is customary in English.
             If false, only whitespaces will be considered as potentially good
             places for line breaks, but you need to set break_long_words to
-            false if you want truly insecable words (default: True).
+            false if you want truly unsplittable words (default: True).
 
         Returns
         -------
