@@ -367,7 +367,7 @@ private[spark] class ExecutorMonitor(
       }
       logInfo(s"Executor ${event.executorId} is removed. Remove reason statistics: (" +
         s"gracefully decommissioned: ${metrics.gracefullyDecommissioned.getCount()}, " +
-        s"decommision unfinished: ${metrics.decommissionUnfinished.getCount()}, " +
+        s"decommission unfinished: ${metrics.decommissionUnfinished.getCount()}, " +
         s"driver killed: ${metrics.driverKilled.getCount()}, " +
         s"unexpectedly exited: ${metrics.exitedUnexpectedly.getCount()}).")
       if (!removed.pendingRemoval || !removed.decommissioning) {
