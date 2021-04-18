@@ -1117,7 +1117,7 @@ class PlanParserSuite extends AnalysisTest {
         ScriptInputOutputSchema(List.empty, List.empty, None, None,
           List.empty, List.empty, None, None, false)))
 
-    // verify with ROW FORMAT DELIMETED
+    // verify with ROW FORMAT DELIMITED
     assertEqual(
       """
         |SELECT TRANSFORM(a, b, c)
