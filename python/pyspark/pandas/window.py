@@ -692,7 +692,7 @@ class RollingGroupby(Rolling):
             agg_columns = [
                 kdf._kser_for(label)
                 for label in kdf._internal.column_labels
-                if label not in groupby._column_labels_to_exlcude
+                if label not in groupby._column_labels_to_exclude
             ]
 
         applied = []

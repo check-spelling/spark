@@ -447,7 +447,7 @@ private[spark] trait SparkListenerInterface {
   def onNodeUnexcluded(nodeUnexcluded: SparkListenerNodeUnexcluded): Unit
 
   /**
-   * Called when a taskset becomes unschedulable due to exludeOnFailure and dynamic allocation
+   * Called when a taskset becomes unschedulable due to excludeOnFailure and dynamic allocation
    * is enabled.
    */
   def onUnschedulableTaskSetAdded(
