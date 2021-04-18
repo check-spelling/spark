@@ -555,7 +555,7 @@ object RemoveNoopOperators extends Rule[LogicalPlan] {
 }
 
 /**
- * Smplify the children of `Union` or remove no-op `Union` from the query plan that
+ * Simplify the children of `Union` or remove no-op `Union` from the query plan that
  * do not make any modifications to the query.
  */
 object RemoveNoopUnion extends Rule[LogicalPlan] {
