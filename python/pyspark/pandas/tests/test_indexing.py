@@ -684,7 +684,7 @@ class IndexingTest(ReusedSQLTestCase):
 
     def test_loc2d_with_known_divisions(self):
         pdf = pd.DataFrame(
-            np.random.randn(20, 5), index=list("abcdefghijklmnopqrst"), columns=list("ABCDE")
+            np.random.randn(20, 5), index=list("abcdefghijklmnopqrstuvwxyz"), columns=list("ABCDE")
         )
         kdf = ps.from_pandas(pdf)
 
@@ -701,7 +701,7 @@ class IndexingTest(ReusedSQLTestCase):
     @unittest.skip("TODO: should handle duplicated columns properly")
     def test_loc2d_duplicated_columns(self):
         pdf = pd.DataFrame(
-            np.random.randn(20, 5), index=list("abcdefghijklmnopqrst"), columns=list("AABCD")
+            np.random.randn(20, 5), index=list("abcdefghijklmnopqrstuvwxyz"), columns=list("AABCD")
         )
         kdf = ps.from_pandas(pdf)
 
