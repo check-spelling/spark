@@ -399,7 +399,7 @@ class UnivariateFeatureSelectorSuite extends MLTest with DefaultReadWriteTest {
     }
   }
 
-  // use the following sklean program to verify the test
+  // use the following sklearn program to verify the test
   // scalastyle:off
   /*
   import numpy as np
@@ -518,7 +518,7 @@ class UnivariateFeatureSelectorSuite extends MLTest with DefaultReadWriteTest {
     assert(indices2(0) === 0 && indices1(1) === 1)
   }
 
-  // use the following sklean program to verify the test
+  // use the following sklearn program to verify the test
   // scalastyle:off
   /* import numpy as np
     from sklearn.feature_selection import SelectFdr, f_regression
@@ -536,7 +536,7 @@ class UnivariateFeatureSelectorSuite extends MLTest with DefaultReadWriteTest {
 
   print(selected) */
 
-  /* sklean result
+  /* sklearn result
   [[5.19537247e-01 4.53144603e-01 2.10190418e-01 9.76237361e-01
   9.05792824e-01 9.34081024e-01]
   [8.68906163e-01 5.49099467e-01 6.73567960e-01 3.94736897e-01
