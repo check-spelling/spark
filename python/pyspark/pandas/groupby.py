@@ -3111,7 +3111,7 @@ class SeriesGroupBy(GroupBy):
 
 def is_multi_agg_with_relabel(**kwargs):
     """
-    Check whether the kwargs pass to .agg look like multi-agg with relabling.
+    Check whether the kwargs pass to .agg look like multi-agg with relabeling.
 
     Parameters
     ----------
