@@ -313,7 +313,7 @@ private[spark] class ShuffleBlockPusher(conf: SparkConf) extends Logging {
    * manner to make sure each target location receives shuffle blocks belonging to the same set
    * of partition ranges. 0-length blocks and blocks that are large enough will be skipped.
    *
-   * @param numPartitions sumber of shuffle partitions in the shuffle file
+   * @param numPartitions number of shuffle partitions in the shuffle file
    * @param partitionId map index of the current mapper
    * @param shuffleId shuffleId of current shuffle
    * @param dataFile shuffle data file
