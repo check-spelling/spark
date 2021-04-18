@@ -1878,7 +1878,7 @@ class StringMethods(object):
             Limit number of splits in output. None, 0 and -1 will be
             interpreted as return all splits.
         expand : bool, default False
-            Expand the splitted strings into separate columns.
+            Expand the split strings into separate columns.
 
             * If ``True``, `n` must be a positive integer, and return DataFrame expanding
               dimensionality.
@@ -2025,7 +2025,7 @@ class StringMethods(object):
             Limit number of splits in output. None, 0 and -1 will be
             interpreted as return all splits.
         expand : bool, default False
-            Expand the splitted strings into separate columns.
+            Expand the split strings into separate columns.
 
             * If ``True``, `n` must be a positive integer, and return DataFrame expanding
               dimensionality.

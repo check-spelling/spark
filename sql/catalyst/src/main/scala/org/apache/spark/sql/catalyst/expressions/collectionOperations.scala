@@ -233,7 +233,7 @@ case class ArraysZip(children: Seq[Expression]) extends Expression with ExpectsI
       """.stripMargin
     }
 
-    val splittedGetValuesAndCardinalities = ctx.splitExpressionsWithCurrentInputs(
+    val splitGetValuesAndCardinalities = ctx.splitExpressionsWithCurrentInputs(
       expressions = getValuesAndCardinalities,
       funcName = "getValuesAndCardinalities",
       returnType = "int",
@@ -274,7 +274,7 @@ case class ArraysZip(children: Seq[Expression]) extends Expression with ExpectsI
 
     ev.copy(code"""
       |$initVariables
-      |$splittedGetValuesAndCardinalities
+      |$splitGetValuesAndCardinalities
       |boolean ${ev.isNull} = $biggestCardinality == -1;
       |if (!${ev.isNull}) {
       |  Object[] $args = new Object[$biggestCardinality];
