@@ -382,7 +382,7 @@ private[scheduler] class HealthTracker (
     /**
      * Apply the timeout to individual tasks.  This is to prevent one-off failures that are very
      * spread out in time (and likely have nothing to do with problems on the executor) from
-     * triggering exlusion.  However, note that we do *not* remove executors and nodes from
+     * triggering exclusion.  However, note that we do *not* remove executors and nodes from
      * being excluded as we expire individual task failures -- each have their own timeout.  E.g.,
      * suppose:
      *  * timeout = 10, maxFailuresPerExec = 2
