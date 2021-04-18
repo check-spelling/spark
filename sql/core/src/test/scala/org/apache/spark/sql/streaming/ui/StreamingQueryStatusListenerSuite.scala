@@ -135,11 +135,11 @@ class StreamingQueryStatusListenerSuite extends StreamTest {
       (id, runId)
     }
 
-    def checkInactiveQueryStatus(numInactives: Int, targetInactives: Seq[UUID]): Unit = {
+    def checkInactiveQueryStatus(numInactive: Int, targetInactive: Seq[UUID]): Unit = {
       eventually(timeout(10.seconds)) {
         val inactiveQueries = queryStore.allQueryUIData.filter(!_.summary.isActive)
-        assert(inactiveQueries.size == numInactives)
-        assert(inactiveQueries.map(_.summary.id).toSet == targetInactives.toSet)
+        assert(inactiveQueries.size == numInactive)
+        assert(inactiveQueries.map(_.summary.id).toSet == targetInactive.toSet)
       }
     }
 
