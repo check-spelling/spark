@@ -80,7 +80,7 @@ class SparkSqlAstBuilder extends AstBuilder {
         SetCommand(Some("-v" -> None))
       case s if s.isEmpty =>
         SetCommand(None)
-      case _ => throw QueryParsingErrors.unexpectedFomatForSetConfigurationError(ctx)
+      case _ => throw QueryParsingErrors.unexpectedFormatForSetConfigurationError(ctx)
     }
   }
 

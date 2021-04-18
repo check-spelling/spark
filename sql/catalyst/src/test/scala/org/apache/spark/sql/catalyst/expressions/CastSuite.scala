@@ -999,7 +999,7 @@ abstract class AnsiCastSuiteBase extends CastSuiteBase {
     }
   }
 
-  test("ANSI mode: disallow type conversions between Datatime types and Boolean types") {
+  test("ANSI mode: disallow type conversions between Datetime types and Boolean types") {
     val timestampLiteral = Literal(1L, TimestampType)
     assert(cast(timestampLiteral, BooleanType).checkInputDataTypes().isFailure)
     val dateLiteral = Literal(1, DateType)

@@ -763,9 +763,9 @@ class StreamingKMeansModel(KMeansModel):
 
     Parameters
     ----------
-    clusterCenters : list of :py:class:`pyspark.mllib.linalg.Vector` or covertible
+    clusterCenters : list of :py:class:`pyspark.mllib.linalg.Vector` or convertible
         Initial cluster centers.
-    clusterWeights : :py:class:`pyspark.mllib.linalg.Vector` or covertible
+    clusterWeights : :py:class:`pyspark.mllib.linalg.Vector` or convertible
         List of weights assigned to each cluster.
 
     Notes

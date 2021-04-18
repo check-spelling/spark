@@ -303,7 +303,7 @@ private[spark] class TaskSetManager(
     while (indexOffset > 0) {
       indexOffset -= 1
       val index = list(indexOffset)
-      if (!isTaskExcludededOnExecOrNode(index, execId, host) &&
+      if (!isTaskExcludedOnExecOrNode(index, execId, host) &&
           !(speculative && hasAttemptOnHost(index, host))) {
         // This should almost always be list.trimEnd(1) to remove tail
         list.remove(indexOffset)
@@ -326,7 +326,7 @@ private[spark] class TaskSetManager(
     taskAttempts(taskIndex).exists(_.host == host)
   }
 
-  private def isTaskExcludededOnExecOrNode(index: Int, execId: String, host: String): Boolean = {
+  private def isTaskExcludedOnExecOrNode(index: Int, execId: String, host: String): Boolean = {
     taskSetExcludelistHelperOpt.exists { excludeList =>
       excludeList.isNodeExcludedForTask(host, index) ||
         excludeList.isExecutorExcludedForTask(execId, index)
@@ -1247,7 +1247,7 @@ private[scheduler] case class BarrierPendingLaunchTask(
     taskLocality: TaskLocality.TaskLocality,
     assignedResources: Map[String, ResourceInformation]) {
   // Stored the corresponding index of the WorkerOffer which is responsible to launch the task.
-  // Used to revert the assigned resources (e.g., cores, custome resources) when the barrier
+  // Used to revert the assigned resources (e.g., cores, custom resources) when the barrier
   // task set doesn't launch successfully in a single resourceOffers round.
   var assignedOfferIndex: Int = _
   var assignedCores: Int = 0

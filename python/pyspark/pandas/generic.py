@@ -484,7 +484,7 @@ class Frame(object, metaclass=ABCMeta):
         0        A     1     4     2     8
         1        A     2     5     3    15
 
-        You can use lambda as wel
+        You can use lambda as well
 
         >>> ps.Series([1, 2, 3]).pipe(lambda x: (x + 1).rename("value"))
         0    2

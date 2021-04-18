@@ -359,7 +359,7 @@ class _ValidatorSharedReadWrite:
                 elif isinstance(v, MLWritable):
                     raise RuntimeError(
                         "ValidatorSharedReadWrite.saveImpl does not handle parameters of type: "
-                        "MLWritable that are not Estimaor/Evaluator/Transformer, and if parameter "
+                        "MLWritable that are not Estimator/Evaluator/Transformer, and if parameter "
                         "is estimator, it cannot be meta estimator such as Validator or OneVsRest")
                 else:
                     jsonParam['value'] = v
@@ -408,9 +408,9 @@ class _ValidatorSharedReadWrite:
 
     @staticmethod
     def validateParams(instance):
-        estiamtor = instance.getEstimator()
+        estimator = instance.getEstimator()
         evaluator = instance.getEvaluator()
-        uidMap = MetaAlgorithmReadWrite.getUidMap(estiamtor)
+        uidMap = MetaAlgorithmReadWrite.getUidMap(estimator)
 
         for elem in [evaluator] + list(uidMap.values()):
             if not isinstance(elem, MLWritable):

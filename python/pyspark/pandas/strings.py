@@ -1878,7 +1878,7 @@ class StringMethods(object):
             Limit number of splits in output. None, 0 and -1 will be
             interpreted as return all splits.
         expand : bool, default False
-            Expand the splitted strings into separate columns.
+            Expand the split strings into separate columns.
 
             * If ``True``, `n` must be a positive integer, and return DataFrame expanding
               dimensionality.
@@ -2025,7 +2025,7 @@ class StringMethods(object):
             Limit number of splits in output. None, 0 and -1 will be
             interpreted as return all splits.
         expand : bool, default False
-            Expand the splitted strings into separate columns.
+            Expand the split strings into separate columns.
 
             * If ``True``, `n` must be a positive integer, and return DataFrame expanding
               dimensionality.
@@ -2211,7 +2211,7 @@ class StringMethods(object):
             after hyphens in compound words, as it is customary in English.
             If false, only whitespaces will be considered as potentially good
             places for line breaks, but you need to set break_long_words to
-            false if you want truly insecable words (default: True).
+            false if you want truly unsplittable words (default: True).
 
         Returns
         -------

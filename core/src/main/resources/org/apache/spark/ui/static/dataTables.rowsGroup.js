@@ -119,7 +119,7 @@ RowsGroup.prototype = {
 			var iColumn = previousOrder.indexOf(orderingColumn);
 			if (iColumn >= 0) {
 				// assume change the direction, because we already has that in previous order
-				return [[orderingColumn, this._toogleDirection(this.order[iColumn][1])]]
+				return [[orderingColumn, this._toggleDirection(this.order[iColumn][1])]]
 			} // else This is the new ordering column. Proceed as is.
 		} // else got multi order - work normal
 		return order;
@@ -166,7 +166,7 @@ RowsGroup.prototype = {
 			this._mergeColumn(newSequenceRow, (iRow-1), columnsIndexesCopy)
 	},
 	
-	_toogleDirection: function(dir)
+	_toggleDirection: function(dir)
 	{
 		return dir == 'asc'? 'desc': 'asc';
 	},
@@ -209,7 +209,7 @@ $(document).on( 'init.dt', function ( e, settings ) {
 
 /*
 
-TODO: Provide function which determines the all <tr>s and <td>s with "rowspan" html-attribute is parent (groupped) for the specified <tr> or <td>. To use in selections, editing or hover styles.
+TODO: Provide function which determines the all <tr>s and <td>s with "rowspan" html-attribute is parent (grouped) for the specified <tr> or <td>. To use in selections, editing or hover styles.
 
 TODO: Feature
 Use saved order direction for grouped columns

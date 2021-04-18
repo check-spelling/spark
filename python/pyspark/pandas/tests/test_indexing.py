@@ -280,7 +280,7 @@ class IndexingTest(ReusedSQLTestCase):
         # Assert invalided signatures raise TypeError
         with self.assertRaises(
             TypeError,
-            msg="Use DataFrame.at like .iat[row_interget_position, column_integer_position]",
+            msg="Use DataFrame.at like .iat[row_integer_position, column_integer_position]",
         ):
             kdf.iat[3]
         with self.assertRaises(
@@ -684,7 +684,7 @@ class IndexingTest(ReusedSQLTestCase):
 
     def test_loc2d_with_known_divisions(self):
         pdf = pd.DataFrame(
-            np.random.randn(20, 5), index=list("abcdefghijklmnopqrst"), columns=list("ABCDE")
+            np.random.randn(20, 5), index=list("abcdefghijklmnopqrstuvwxyz"), columns=list("ABCDE")
         )
         kdf = ps.from_pandas(pdf)
 
@@ -701,7 +701,7 @@ class IndexingTest(ReusedSQLTestCase):
     @unittest.skip("TODO: should handle duplicated columns properly")
     def test_loc2d_duplicated_columns(self):
         pdf = pd.DataFrame(
-            np.random.randn(20, 5), index=list("abcdefghijklmnopqrst"), columns=list("AABCD")
+            np.random.randn(20, 5), index=list("abcdefghijklmnopqrstuvwxyz"), columns=list("AABCD")
         )
         kdf = ps.from_pandas(pdf)
 

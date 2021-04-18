@@ -447,7 +447,7 @@ class MasterSuite extends SparkFunSuite
         workerHtml should include ("Spark Worker at")
         workerHtml should include ("Running Executors (0)")
         verifyStaticResourcesServedByProxy(workerHtml, workerUrl)
-      case _ => fail  // make sure we don't accidentially skip the tests
+      case _ => fail  // make sure we don't accidentally skip the tests
     }
   }
 

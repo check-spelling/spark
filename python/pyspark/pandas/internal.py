@@ -1070,9 +1070,9 @@ class InternalFrame(object):
         """ Copy the immutable InternalFrame with the updates by the specified Spark DataFrame.
 
         :param spark_frame: the new Spark DataFrame
-        :param index_dtypes: the index dtypes. If None, the original dtyeps are used.
+        :param index_dtypes: the index dtypes. If None, the original dtypes are used.
         :param data_columns: the new column names. If None, the original one is used.
-        :param data_dtypes: the data dtypes. If None, the original dtyeps are used.
+        :param data_dtypes: the data dtypes. If None, the original dtypes are used.
         :return: the copied InternalFrame.
         """
         if index_dtypes is None:
@@ -1274,11 +1274,11 @@ class InternalFrame(object):
         :param index_spark_columns: the list of Spark Column.
                                     If not specified, the original ones are used.
         :param index_names: the index names. If not specified, the original ones are used.
-        :param index_dtypes: the index dtypes. If not specified, the original dtyeps are used.
+        :param index_dtypes: the index dtypes. If not specified, the original dtypes are used.
         :param column_labels: the new column labels. If not specified, the original ones are used.
         :param data_spark_columns: the new Spark Columns.
                                    If not specified, the original ones are used.
-        :param data_dtypes: the data dtypes. If not specified, the original dtyeps are used.
+        :param data_dtypes: the data dtypes. If not specified, the original dtypes are used.
         :param column_label_names: the new names of the column index levels.
                                    If not specified, the original ones are used.
         :return: the copied immutable InternalFrame.

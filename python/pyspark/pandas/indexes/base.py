@@ -1727,7 +1727,7 @@ class Index(IndexOpsMixin):
         >>> kidx.append(kidx)
         Int64Index([10, 5, 0, 5, 10, 5, 0, 10, 10, 5, 0, 5, 10, 5, 0, 10], dtype='int64')
 
-        Support for MiltiIndex
+        Support for MultiIndex
 
         >>> kidx = ps.MultiIndex.from_tuples([('a', 'x'), ('b', 'y')])
         >>> kidx  # doctest: +SKIP

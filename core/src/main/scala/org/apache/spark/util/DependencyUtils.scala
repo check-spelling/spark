@@ -67,7 +67,7 @@ private[spark] object DependencyUtils extends Logging {
    *
    *         2. exclude: comma separated exclusions to apply when resolving transitive dependencies,
    *            consists of `group:module` pairs separated by commas.
-   *            Example: Input:  excludeorg.mortbay.jetty:jetty,org.eclipse.jetty:jetty-http
+   *            Example: Input:  exclude=org.mortbay.jetty:jetty,org.eclipse.jetty:jetty-http
    *            Output:  [org.mortbay.jetty:jetty,org.eclipse.jetty:jetty-http]
    */
   private def parseQueryParams(uri: URI): (Boolean, String) = {

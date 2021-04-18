@@ -89,7 +89,7 @@ def walk_tb(tb):
 def try_simplify_traceback(tb):
     """
     Simplify the traceback. It removes the tracebacks in the current package, and only
-    shows the traceback that is related to the thirdparty and user-specified codes.
+    shows the traceback that is related to third-party and user-specified codes.
 
     Returns
     -------

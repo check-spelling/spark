@@ -627,7 +627,7 @@ class JDBCWriteSuite extends SharedSparkSession with BeforeAndAfter {
     }
   }
 
-  test("SPARK-34144: write Date and Timestampt, read LocalDate and Instant") {
+  test("SPARK-34144: write Date and Timestamp, read LocalDate and Instant") {
     val schema = new StructType().add("d", DateType).add("t", TimestampType);
     val values = Seq(Row.apply(Date.valueOf("2020-01-01"),
       Timestamp.valueOf("2020-02-02 12:13:14.56789")))
@@ -644,7 +644,7 @@ class JDBCWriteSuite extends SharedSparkSession with BeforeAndAfter {
     }
   }
 
-  test("SPARK-34144: write LocalDate and Instant, read Date and Timestampt") {
+  test("SPARK-34144: write LocalDate and Instant, read Date and Timestamp") {
     withSQLConf(SQLConf.DATETIME_JAVA8API_ENABLED.key -> "true") {
       val schema = new StructType().add("d", DateType).add("t", TimestampType);
       val values = Seq(Row.apply(LocalDate.parse("2020-01-01"),

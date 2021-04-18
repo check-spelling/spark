@@ -77,7 +77,7 @@ def _register_accessor(name, cls):
 
     Notes
     -----
-    When accessed, your accessor will be initialiazed with the pandas-on-Spark object the user
+    When accessed, your accessor will be initialized with the pandas-on-Spark object the user
     is interacting with. The code signature must be:
 
     .. code-block:: python
@@ -140,7 +140,7 @@ def register_dataframe_accessor(name):
 
     Notes
     -----
-    When accessed, your accessor will be initialiazed with the pandas-on-Spark object the user
+    When accessed, your accessor will be initialized with the pandas-on-Spark object the user
     is interacting with. The accessor's init method should always ingest the object being accessed.
     See the examples for the init signature.
 
@@ -218,7 +218,7 @@ def register_series_accessor(name):
 
     Notes
     -----
-    When accessed, your accessor will be initialiazed with the pandas-on-Spark object the user is
+    When accessed, your accessor will be initialized with the pandas-on-Spark object the user is
     interacting with. The code signature must be::
 
         def __init__(self, pandas_on_spark_obj):
@@ -290,7 +290,7 @@ def register_index_accessor(name):
 
     Notes
     -----
-    When accessed, your accessor will be initialiazed with the pandas-on-Spark object the user is
+    When accessed, your accessor will be initialized with the pandas-on-Spark object the user is
     interacting with. The code signature must be::
 
         def __init__(self, pandas_on_spark_obj):

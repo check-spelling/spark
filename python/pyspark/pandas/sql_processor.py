@@ -127,8 +127,8 @@ def sql(query: str, globals=None, locals=None, **kwargs) -> DataFrame:
 
     Also, it is possible to query using Series.
 
-    >>> myser = ps.Series({'a': [1.0, 2.0, 3.0], 'b': [15.0, 30.0, 45.0]})
-    >>> ps.sql("SELECT * from {myser}")
+    >>> myseries = ps.Series({'a': [1.0, 2.0, 3.0], 'b': [15.0, 30.0, 45.0]})
+    >>> ps.sql("SELECT * from {myseries}")
                         0
     0     [1.0, 2.0, 3.0]
     1  [15.0, 30.0, 45.0]

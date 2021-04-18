@@ -1768,19 +1768,19 @@ class Series(Frame, IndexOpsMixin, Generic[T]):
         >>> s2 = ps.Series(["low", "low", "medium"],
         ...                index=pd.DatetimeIndex(['2014-02-12', '2014-02-13',
         ...                                        '2014-02-15']),
-        ...                name="winspeed")
+        ...                name="windspeed")
         >>> s2
         2014-02-12       low
         2014-02-13       low
         2014-02-15    medium
-        Name: winspeed, dtype: object
+        Name: windspeed, dtype: object
 
         >>> s2.reindex_like(s1).sort_index()
         2014-02-12       low
         2014-02-13       low
         2014-02-14      None
         2014-02-15    medium
-        Name: winspeed, dtype: object
+        Name: windspeed, dtype: object
         """
         if isinstance(other, (Series, DataFrame)):
             return self.reindex(index=other.index)
@@ -2163,9 +2163,9 @@ class Series(Frame, IndexOpsMixin, Generic[T]):
                 index = [index]
             elif is_name_like_value(index):
                 index = [(index,)]
-            elif all(is_name_like_value(idxes, allow_tuple=False) for idxes in index):
+            elif all(is_name_like_value(indexes, allow_tuple=False) for indexes in index):
                 index = [(idex,) for idex in index]
-            elif not all(is_name_like_tuple(idxes) for idxes in index):
+            elif not all(is_name_like_tuple(indexes) for indexes in index):
                 raise ValueError(
                     "If the given index is a list, it "
                     "should only contains names as all tuples or all non tuples "
@@ -2173,16 +2173,16 @@ class Series(Frame, IndexOpsMixin, Generic[T]):
                 )
 
             drop_index_scols = []
-            for idxes in index:
+            for indexes in index:
                 try:
                     index_scols = [
                         internal.index_spark_columns[lvl] == idx
-                        for lvl, idx in enumerate(idxes, level)
+                        for lvl, idx in enumerate(indexes, level)
                     ]
                 except IndexError:
                     raise KeyError(
                         "Key length ({}) exceeds index depth ({})".format(
-                            internal.index_level, len(idxes)
+                            internal.index_level, len(indexes)
                         )
                     )
                 drop_index_scols.append(reduce(lambda x, y: x & y, index_scols))
@@ -3940,7 +3940,7 @@ class Series(Frame, IndexOpsMixin, Generic[T]):
                 length      0.3
         dtype: float64
 
-        Also support for MultiIndex with several indexs.
+        Also support for MultiIndex with several indexes.
 
         >>> midx = pd.MultiIndex([['a', 'b', 'c'],
         ...                       ['lama', 'cow', 'falcon'],

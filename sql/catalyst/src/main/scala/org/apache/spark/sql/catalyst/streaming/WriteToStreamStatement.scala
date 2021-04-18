@@ -25,7 +25,7 @@ import org.apache.spark.sql.connector.catalog.{Identifier, Table, TableCatalog}
 import org.apache.spark.sql.streaming.OutputMode
 
 /**
- * A statement for Stream writing. It contains all neccessary param and will be resolved in the
+ * A statement for Stream writing. It contains all necessary param and will be resolved in the
  * rule [[ResolveStreamWrite]].
  *
  * @param userSpecifiedName  Query name optionally specified by the user.

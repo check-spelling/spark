@@ -6,7 +6,7 @@ previous Python implementation of the Pickler class. Because this functionality
 is only available for Python versions 3.8+, a lot of backward-compatibility
 code is also removed.
 
-Note that the C Pickler sublassing API is CPython-specific. Therefore, some
+Note that the C Pickler subclassing API is CPython-specific. Therefore, some
 guards present in cloudpickle.py that were written to handle PyPy specificities
 are not present in cloudpickle_fast.py
 """
@@ -426,7 +426,7 @@ def _dict_items_reduce(obj):
 
 
 def _function_setstate(obj, state):
-    """Update the state of a dynaamic function.
+    """Update the state of a dynamic function.
 
     As __closure__ and __globals__ are readonly attributes of a function, we
     cannot rely on the native setstate routine of pickle.load_build, that calls
@@ -653,7 +653,7 @@ class CloudPickler(Pickler):
                 return self._function_reduce(obj)
             else:
                 # fallback to save_global, including the Pickler's
-                # distpatch_table
+                # dispatch_table
                 return NotImplemented
 
     else:

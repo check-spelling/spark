@@ -307,7 +307,7 @@ object QueryParsingErrors {
     new ParseException(s"Found duplicate keys '$key'.", ctx)
   }
 
-  def unexpectedFomatForSetConfigurationError(ctx: SetConfigurationContext): Throwable = {
+  def unexpectedFormatForSetConfigurationError(ctx: SetConfigurationContext): Throwable = {
     new ParseException(
       s"""
          |Expected format is 'SET', 'SET key', or 'SET key=value'. If you want to include

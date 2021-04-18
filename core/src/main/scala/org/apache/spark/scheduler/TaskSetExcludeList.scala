@@ -51,7 +51,7 @@ private[scheduler] class TaskSetExcludelist(
   /**
    * A map from each executor to the task failures on that executor.  This is used for exclusion
    * within this taskset, and it is also relayed onto [[HealthTracker]] for app-level
-   * exlucsion if this taskset completes successfully.
+   * exclusion if this taskset completes successfully.
    */
   val execToFailures = new HashMap[String, ExecutorFailuresInTaskSet]()
 

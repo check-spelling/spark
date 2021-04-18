@@ -2208,25 +2208,25 @@ class DataSourceV2SQLSuite
         def verify(sql: String): Unit = {
           val e = intercept[AnalysisException](spark.sql(sql))
           assert(e.message.contains(s"Table or view not found: $t"),
-            s"Error message did not contain expected text while evaluting $sql")
+            s"Error message did not contain expected text while evaluating $sql")
         }
 
         def verifyView(sql: String): Unit = {
           val e = intercept[AnalysisException](spark.sql(sql))
           assert(e.message.contains(s"View not found: $t"),
-            s"Error message did not contain expected text while evaluting $sql")
+            s"Error message did not contain expected text while evaluating $sql")
         }
 
         def verifyTable(sql: String): Unit = {
           val e = intercept[AnalysisException](spark.sql(sql))
           assert(e.message.contains(s"Table not found: $t"),
-            s"Error message did not contain expected text while evaluting $sql")
+            s"Error message did not contain expected text while evaluating $sql")
         }
 
         def verifyGeneric(sql: String): Unit = {
           val e = intercept[AnalysisException](spark.sql(sql))
           assert(e.message.contains(s"not found: $t"),
-            s"Error message did not contain expected text while evaluting $sql")
+            s"Error message did not contain expected text while evaluating $sql")
         }
 
         verify(s"select * from $t")

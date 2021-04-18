@@ -9096,7 +9096,8 @@ defaultdict(<class 'list'>, {'col..., 'col...})]
             if isinstance(value_vars, tuple):
                 if self._internal.column_labels_level == 1:
                     value_vars = [
-                        valv if is_name_like_tuple(valv) else (valv,) for valv in value_vars
+                        value_var if is_name_like_tuple(value_var) else (value_var,)
+                        for value_var in value_vars
                     ]
                 else:
                     raise ValueError(
@@ -9105,9 +9106,14 @@ defaultdict(<class 'list'>, {'col..., 'col...})]
             elif is_name_like_value(value_vars):
                 value_vars = [(value_vars,)]
             else:
-                value_vars = [valv if is_name_like_tuple(valv) else (valv,) for valv in value_vars]
+                value_vars = [
+                    value_var if is_name_like_tuple(value_var) else (value_var,)
+                    for value_var in value_vars
+                ]
 
-            non_existence_col = [valv for valv in value_vars if valv not in column_labels]
+            non_existence_col = [
+                value_var for value_var in value_vars if value_var not in column_labels
+            ]
             if len(non_existence_col) != 0:
                 raveled_column_labels = np.ravel(column_labels)
                 missing = [

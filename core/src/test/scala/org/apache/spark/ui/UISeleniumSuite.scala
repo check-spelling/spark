@@ -139,7 +139,7 @@ class UISeleniumSuite extends SparkFunSuite with WebBrowser with Matchers with B
         // if first row can get the id 0, then the page is rendered and the scheduling mode is
         // displayed with no error when we visit http://localhost:4040/jobs/ even though
         // we configure the scheduling mode like spark.scheduler.mode=fair
-        // instead of spark.scheculer.mode=FAIR
+        // instead of spark.scheduler.mode=FAIR
         firstRowColumns.get(0).getText should be ("0")
       }
     }

@@ -620,21 +620,21 @@ getClientModeSparkSubmitOpts <- function(submitOps, sparkEnvirMap) {
 
 # Utility function that handles sparkJars argument, and normalize paths
 processSparkJars <- function(jars) {
-  splittedJars <- splitString(jars)
-  if (length(splittedJars) > length(jars)) {
+  splitJars <- splitString(jars)
+  if (length(splitJars) > length(jars)) {
     warning("sparkJars as a comma-separated string is deprecated, use character vector instead")
   }
-  normalized <- suppressWarnings(normalizePath(splittedJars))
+  normalized <- suppressWarnings(normalizePath(splitJars))
   normalized
 }
 
 # Utility function that handles sparkPackages argument
 processSparkPackages <- function(packages) {
-  splittedPackages <- splitString(packages)
-  if (length(splittedPackages) > length(packages)) {
+  splitPackages <- splitString(packages)
+  if (length(splitPackages) > length(packages)) {
     warning("sparkPackages as a comma-separated string is deprecated, use character vector instead")
   }
-  splittedPackages
+  splitPackages
 }
 
 # Utility function that checks and install Spark to local folder if not found

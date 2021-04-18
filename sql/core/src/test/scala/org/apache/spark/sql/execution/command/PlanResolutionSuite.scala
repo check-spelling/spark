@@ -2122,7 +2122,7 @@ class PlanResolutionSuite extends AnalysisTest {
       "escape.delim" -> "y",
       "serialization.format" -> "x",
       "line.delim" -> "\n",
-      "colelction.delim" -> "a", // yes, it's a typo from Hive :)
+      "collection.delim" -> "a", // yes, it's a typo from Hive :)
       "mapkey.delim" -> "b"))
   }
 

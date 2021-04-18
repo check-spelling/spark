@@ -90,7 +90,7 @@ class GroupBy(object, metaclass=ABCMeta):
         groupkeys: List[Series],
         as_index: bool,
         dropna: bool,
-        column_labels_to_exlcude: Set[Tuple],
+        column_labels_to_exclude: Set[Tuple],
         agg_columns_selected: bool,
         agg_columns: List[Series],
     ):
@@ -98,7 +98,7 @@ class GroupBy(object, metaclass=ABCMeta):
         self._groupkeys = groupkeys
         self._as_index = as_index
         self._dropna = dropna
-        self._column_labels_to_exlcude = column_labels_to_exlcude
+        self._column_labels_to_exclude = column_labels_to_exclude
         self._agg_columns_selected = agg_columns_selected
         self._agg_columns = agg_columns
 
@@ -1124,7 +1124,7 @@ class GroupBy(object, metaclass=ABCMeta):
             agg_columns = [
                 kdf._kser_for(label)
                 for label in kdf._internal.column_labels
-                if label not in self._column_labels_to_exlcude
+                if label not in self._column_labels_to_exclude
             ]
 
         kdf, groupkey_labels, groupkey_names = GroupBy._prepare_group_map_apply(
@@ -1307,7 +1307,7 @@ class GroupBy(object, metaclass=ABCMeta):
             agg_columns = [
                 kdf._kser_for(label)
                 for label in kdf._internal.column_labels
-                if label not in self._column_labels_to_exlcude
+                if label not in self._column_labels_to_exclude
             ]
 
         data_schema = (
@@ -1798,7 +1798,7 @@ class GroupBy(object, metaclass=ABCMeta):
             agg_columns = [
                 kdf._kser_for(label)
                 for label in kdf._internal.column_labels
-                if label not in self._column_labels_to_exlcude
+                if label not in self._column_labels_to_exclude
             ]
 
         kdf, groupkey_labels, _ = GroupBy._prepare_group_map_apply(
@@ -2583,17 +2583,17 @@ class DataFrameGroupBy(GroupBy):
             (
                 kdf,
                 new_by_series,
-                column_labels_to_exlcude,
+                column_labels_to_exclude,
             ) = GroupBy._resolve_grouping_from_diff_dataframes(kdf, by)
         else:
             new_by_series = GroupBy._resolve_grouping(kdf, by)
-            column_labels_to_exlcude = set()
+            column_labels_to_exclude = set()
         return DataFrameGroupBy(
             kdf,
             new_by_series,
             as_index=as_index,
             dropna=dropna,
-            column_labels_to_exlcude=column_labels_to_exlcude,
+            column_labels_to_exclude=column_labels_to_exclude,
         )
 
     def __init__(
@@ -2602,21 +2602,21 @@ class DataFrameGroupBy(GroupBy):
         by: List[Series],
         as_index: bool,
         dropna: bool,
-        column_labels_to_exlcude: Set[Tuple],
+        column_labels_to_exclude: Set[Tuple],
         agg_columns: List[Tuple] = None,
     ):
 
         agg_columns_selected = agg_columns is not None
         if agg_columns_selected:
             for label in agg_columns:
-                if label in column_labels_to_exlcude:
+                if label in column_labels_to_exclude:
                     raise KeyError(label)
         else:
             agg_columns = [
                 label
                 for label in kdf._internal.column_labels
                 if not any(label == key._column_label and key._kdf is kdf for key in by)
-                and label not in column_labels_to_exlcude
+                and label not in column_labels_to_exclude
             ]
 
         super().__init__(
@@ -2624,7 +2624,7 @@ class DataFrameGroupBy(GroupBy):
             groupkeys=by,
             as_index=as_index,
             dropna=dropna,
-            column_labels_to_exlcude=column_labels_to_exlcude,
+            column_labels_to_exclude=column_labels_to_exclude,
             agg_columns_selected=agg_columns_selected,
             agg_columns=[kdf[label] for label in agg_columns],
         )
@@ -2664,7 +2664,7 @@ class DataFrameGroupBy(GroupBy):
                 self._groupkeys,
                 as_index=self._as_index,
                 dropna=self._dropna,
-                column_labels_to_exlcude=self._column_labels_to_exlcude,
+                column_labels_to_exclude=self._column_labels_to_exclude,
                 agg_columns=item,
             )
 
@@ -2795,7 +2795,7 @@ class SeriesGroupBy(GroupBy):
             groupkeys=by,
             as_index=True,
             dropna=dropna,
-            column_labels_to_exlcude=set(),
+            column_labels_to_exclude=set(),
             agg_columns_selected=True,
             agg_columns=[kser],
         )
@@ -3111,7 +3111,7 @@ class SeriesGroupBy(GroupBy):
 
 def is_multi_agg_with_relabel(**kwargs):
     """
-    Check whether the kwargs pass to .agg look like multi-agg with relabling.
+    Check whether the kwargs pass to .agg look like multi-agg with relabeling.
 
     Parameters
     ----------

@@ -35,7 +35,7 @@ import org.apache.spark.ui.{GraphUIData, JsCollector, UIUtils => SparkUIUtils, W
 private[ui] class StreamingQueryStatisticsPage(parent: StreamingQueryTab)
   extends WebUIPage("statistics") with Logging {
 
-  // State store provider implementation mustn't do any heavyweight initialiation in constructor
+  // State store provider implementation mustn't do any heavyweight initialization in constructor
   // but in its init method.
   private val supportedCustomMetrics = StateStoreProvider.create(
     parent.parent.conf.get(STATE_STORE_PROVIDER_CLASS)).supportedCustomMetrics

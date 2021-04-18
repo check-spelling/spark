@@ -133,7 +133,7 @@ def _auto_patch_spark():
                 )
             )
 
-    # Autopatching is on by default.
+    # Autopatch is on by default.
     x = os.getenv("SPARK_KOALAS_AUTOPATCH", "true")
     if x.lower() in ("true", "1", "enabled"):
         logger = logging.getLogger("spark")

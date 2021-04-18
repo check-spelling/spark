@@ -81,7 +81,7 @@ class UnsupportedOperationsSuite extends SparkFunSuite with SQLHelper {
 
   // Commands
   assertNotSupportedInStreamingPlan(
-    "commmands",
+    "commands",
     DummyCommand(),
     outputMode = Append,
     expectedMsgs = "commands" :: Nil)

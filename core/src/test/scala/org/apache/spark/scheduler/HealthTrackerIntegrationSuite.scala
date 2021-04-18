@@ -62,7 +62,7 @@ class HealthTrackerIntegrationSuite extends SchedulerIntegrationSuite[MultiExecu
       TEST_N_CORES_EXECUTOR.key -> "10"
     )
   ) {
-    // To reliably reproduce the failure that would occur without exludeOnFailure, we have to use 1
+    // To reliably reproduce the failure that would occur without excludeOnFailure, we have to use 1
     // task.  That way, we ensure this 1 task gets rotated through enough bad executors on the host
     // to fail the taskSet, before we have a bunch of different tasks fail in the executors so we
     // exclude them.

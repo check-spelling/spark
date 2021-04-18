@@ -151,7 +151,7 @@ def attach(logger_module: Union[str, ModuleType]) -> None:
                 continue
             setattr(target_class, name, _wrap_property(target_class.__name__, name, prop, logger))
 
-    # Missings
+    # Missing
     for original, missing in [
         (pd.DataFrame, _MissingPandasLikeDataFrame),
         (pd.Series, MissingPandasLikeSeries),
