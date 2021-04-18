@@ -303,7 +303,7 @@ private[spark] class TaskSetManager(
     while (indexOffset > 0) {
       indexOffset -= 1
       val index = list(indexOffset)
-      if (!isTaskExcludededOnExecOrNode(index, execId, host) &&
+      if (!isTaskExcludedOnExecOrNode(index, execId, host) &&
           !(speculative && hasAttemptOnHost(index, host))) {
         // This should almost always be list.trimEnd(1) to remove tail
         list.remove(indexOffset)
@@ -326,7 +326,7 @@ private[spark] class TaskSetManager(
     taskAttempts(taskIndex).exists(_.host == host)
   }
 
-  private def isTaskExcludededOnExecOrNode(index: Int, execId: String, host: String): Boolean = {
+  private def isTaskExcludedOnExecOrNode(index: Int, execId: String, host: String): Boolean = {
     taskSetExcludelistHelperOpt.exists { excludeList =>
       excludeList.isNodeExcludedForTask(host, index) ||
         excludeList.isExecutorExcludedForTask(execId, index)

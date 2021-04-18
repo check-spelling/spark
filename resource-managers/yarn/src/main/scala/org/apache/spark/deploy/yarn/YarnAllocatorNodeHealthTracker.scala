@@ -61,7 +61,7 @@ private[spark] class YarnAllocatorNodeHealthTracker(
 
   private val allocatorExcludedNodeList = new HashMap[String, Long]()
 
-  private var currentExcludededYarnNodes = Set.empty[String]
+  private var currentExcludedYarnNodes = Set.empty[String]
 
   private var schedulerExcludedNodeList = Set.empty[String]
 
@@ -109,7 +109,7 @@ private[spark] class YarnAllocatorNodeHealthTracker(
       logWarning("No available nodes reported, please check Resource Manager.")
       false
     } else {
-      currentExcludededYarnNodes.size >= numClusterNodes
+      currentExcludedYarnNodes.size >= numClusterNodes
     }
   }
 
@@ -123,8 +123,8 @@ private[spark] class YarnAllocatorNodeHealthTracker(
   private def synchronizeExcludedNodesWithYarn(nodesToExclude: Set[String]): Unit = {
     // Update YARN with the nodes that are excluded for this application,
     // in order to avoid allocating new Containers on the problematic nodes.
-    val additions = (nodesToExclude -- currentExcludededYarnNodes).toList.sorted
-    val removals = (currentExcludededYarnNodes -- nodesToExclude).toList.sorted
+    val additions = (nodesToExclude -- currentExcludedYarnNodes).toList.sorted
+    val removals = (currentExcludedYarnNodes -- nodesToExclude).toList.sorted
     if (additions.nonEmpty) {
       logInfo(s"adding nodes to YARN application master's excluded node list: $additions")
     }
@@ -137,7 +137,7 @@ private[spark] class YarnAllocatorNodeHealthTracker(
       // https://issues.apache.org/jira/browse/HADOOP-17169
       amClient.updateBlacklist(additions.asJava, removals.asJava)
     }
-    currentExcludededYarnNodes = nodesToExclude
+    currentExcludedYarnNodes = nodesToExclude
   }
 
   private def removeExpiredYarnExcludedNodes(): Unit = {

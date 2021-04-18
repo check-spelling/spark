@@ -103,9 +103,9 @@ class HealthTrackerSuite extends SparkFunSuite with BeforeAndAfterEach with Mock
     // before the executor is excluded.  We might get successes after excluding (because the
     // executor might be flaky but not totally broken).  But successes should not unexclude the
     // executor.
-    val failuresUntilExcludeed = conf.get(config.MAX_FAILURES_PER_EXEC)
+    val failuresUntilExcluded = conf.get(config.MAX_FAILURES_PER_EXEC)
     var failuresSoFar = 0
-    (0 until failuresUntilExcludeed * 10).foreach { stageId =>
+    (0 until failuresUntilExcluded * 10).foreach { stageId =>
       val taskSetExclude = createTaskSetExcludelist(stageId)
       if (stageId % 2 == 0) {
         // fail one task in every other taskset
@@ -115,14 +115,14 @@ class HealthTrackerSuite extends SparkFunSuite with BeforeAndAfterEach with Mock
       }
       healthTracker.updateExcludedForSuccessfulTaskSet(stageId, 0, taskSetExclude.execToFailures)
       assert(failuresSoFar == stageId / 2 + 1)
-      if (failuresSoFar < failuresUntilExcludeed) {
+      if (failuresSoFar < failuresUntilExcluded) {
         assertEquivalentToSet(healthTracker.isExecutorExcluded(_), Set())
       } else {
         assertEquivalentToSet(healthTracker.isExecutorExcluded(_), Set("1"))
         verify(listenerBusMock).post(
-          SparkListenerExecutorExcluded(0, "1", failuresUntilExcludeed))
+          SparkListenerExecutorExcluded(0, "1", failuresUntilExcluded))
         verify(listenerBusMock).post(
-          SparkListenerExecutorBlacklisted(0, "1", failuresUntilExcludeed))
+          SparkListenerExecutorBlacklisted(0, "1", failuresUntilExcluded))
       }
     }
   }
@@ -130,9 +130,9 @@ class HealthTrackerSuite extends SparkFunSuite with BeforeAndAfterEach with Mock
   // If an executor has many task failures, but the task set ends up failing, it shouldn't be
   // counted against the executor.
   test("executors aren't excluded as a result of tasks in failed task sets") {
-    val failuresUntilExcludeed = conf.get(config.MAX_FAILURES_PER_EXEC)
+    val failuresUntilExcluded = conf.get(config.MAX_FAILURES_PER_EXEC)
     // for many different stages, executor 1 fails a task, and then the taskSet fails.
-    (0 until failuresUntilExcludeed * 10).foreach { stage =>
+    (0 until failuresUntilExcluded * 10).foreach { stage =>
       val taskSetExclude = createTaskSetExcludelist(stage)
       taskSetExclude.updateExcludedForFailedTask(
         "hostA", exec = "1", index = 0, failureReason = "testing")
