@@ -264,7 +264,7 @@ class SeriesTest(ReusedSQLTestCase, SQLTestUtils):
         # self.assert_eq(res, pser.rename(pser))
 
         # res = kser.rename(lambda x: x**2, inplace=True)
-        # self.assertis(res, kser)
+        # self.assertis (?)(res, kser)
         # s.rename(lambda x: x**2, inplace=True)
         # self.assert_eq(kser, pser)
 
