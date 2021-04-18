@@ -280,7 +280,7 @@ class IndexingTest(ReusedSQLTestCase):
         # Assert invalided signatures raise TypeError
         with self.assertRaises(
             TypeError,
-            msg="Use DataFrame.at like .iat[row_interget_position, column_integer_position]",
+            msg="Use DataFrame.at like .iat[row_integer_position, column_integer_position]",
         ):
             kdf.iat[3]
         with self.assertRaises(
