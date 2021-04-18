@@ -675,7 +675,7 @@ class UDFTests(ReusedSQLTestCase):
                          .withCachedData().getClass().getSimpleName(), 'InMemoryRelation')
 
     # SPARK-34545
-    def test_udf_input_serialization_valuecompare_disabled(self):
+    def test_udf_input_serialization_value_compare_disabled(self):
         def f(e):
             return e[0]
 
