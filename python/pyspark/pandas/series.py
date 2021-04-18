@@ -1768,19 +1768,19 @@ class Series(Frame, IndexOpsMixin, Generic[T]):
         >>> s2 = ps.Series(["low", "low", "medium"],
         ...                index=pd.DatetimeIndex(['2014-02-12', '2014-02-13',
         ...                                        '2014-02-15']),
-        ...                name="winspeed")
+        ...                name="windspeed")
         >>> s2
         2014-02-12       low
         2014-02-13       low
         2014-02-15    medium
-        Name: winspeed, dtype: object
+        Name: windspeed, dtype: object
 
         >>> s2.reindex_like(s1).sort_index()
         2014-02-12       low
         2014-02-13       low
         2014-02-14      None
         2014-02-15    medium
-        Name: winspeed, dtype: object
+        Name: windspeed, dtype: object
         """
         if isinstance(other, (Series, DataFrame)):
             return self.reindex(index=other.index)
