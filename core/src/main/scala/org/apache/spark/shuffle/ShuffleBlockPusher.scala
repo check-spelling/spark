@@ -191,7 +191,7 @@ private[spark] class ShuffleBlockPusher(conf: SparkConf) extends Logging {
       // Initiating a connection and pushing blocks to a remote shuffle service is always handled by
       // the block-push-threads. We should not initiate the connection creation in the
       // blockPushListener callbacks which are invoked by the netty eventloop because:
-      // 1. TrasportClient.createConnection(...) blocks for connection to be established and it's
+      // 1. TransportClient.createConnection(...) blocks for connection to be established and it's
       // recommended to avoid any blocking operations in the eventloop;
       // 2. The actual connection creation is a task that gets added to the task queue of another
       // eventloop which could have eventloops eventually blocking each other.
