@@ -1102,7 +1102,7 @@ class PlannerSuite extends SharedSparkSession with AdaptiveSparkPlanHelper {
         assert(sortNodes.size == 3)
         val outputOrdering = planned.outputOrdering
         assert(outputOrdering.size == 1)
-        // Sort order should have 3 childrens, not 4. This is because t1.id*2 and 2*t1.id are same
+        // Sort order should have 3 children, not 4. This is because t1.id*2 and 2*t1.id are same
         assert(outputOrdering.head.children.size == 3)
         assert(outputOrdering.head.children.count(_.isInstanceOf[AttributeReference]) == 2)
         assert(outputOrdering.head.children.count(_.isInstanceOf[Multiply]) == 1)
