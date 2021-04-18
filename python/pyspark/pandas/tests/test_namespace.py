@@ -168,7 +168,7 @@ class NamespaceTest(ReusedSQLTestCase, SQLTestUtils):
         kdf3 = kdf.copy()
 
         columns = pd.MultiIndex.from_tuples([("X", "A"), ("X", "B"), ("Y", "C")])
-        # TODO: colums.names = ["XYZ", "ABC"]
+        # TODO: columns.names = ["XYZ", "ABC"]
         pdf3.columns = columns
         kdf3.columns = columns
 
