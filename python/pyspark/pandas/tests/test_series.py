@@ -373,7 +373,7 @@ class SeriesTest(ReusedSQLTestCase, SQLTestUtils):
     @unittest.skipIf(
         not extension_object_dtypes_available, "pandas extension object dtypes are not available"
     )
-    def test_or_extenstion_dtypes(self):
+    def test_or_extension_dtypes(self):
         pdf = pd.DataFrame(
             {
                 "left": [True, False, True, False, np.nan, np.nan, True, False, np.nan],
@@ -410,7 +410,7 @@ class SeriesTest(ReusedSQLTestCase, SQLTestUtils):
     @unittest.skipIf(
         not extension_object_dtypes_available, "pandas extension object dtypes are not available"
     )
-    def test_and_extenstion_dtypes(self):
+    def test_and_extension_dtypes(self):
         pdf = pd.DataFrame(
             {
                 "left": [True, False, True, False, np.nan, np.nan, True, False, np.nan],
