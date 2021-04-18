@@ -60,7 +60,7 @@ if (identical(Sys.getenv("NOT_CRAN"), "true")) {
     # set random seed for predictable results. mostly for base's sample() in tree and classification
     set.seed(42)
 
-    if (packageVersion("testthat")$major <= 1) stop("testhat 1.x is not supported")
+    if (packageVersion("testthat")$major <= 1) stop("testthat 1.x is not supported")
 
     test_runner <- if (packageVersion("testthat")$major == 2) {
       # testthat >= 2.0.0, < 3.0.0
